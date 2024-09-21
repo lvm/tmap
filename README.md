@@ -1,7 +1,7 @@
 # `tmap`
 
 A `TMap` is a wrapper around `sync.Map` with context and a TTL.  
-It has the same methods as `sync.Map` plus `Truncate` and `Flush`, which takes care of removing all items in a `Map` and takes care of removing expired items from a `Map`, respectivelly.
+It has the same methods as `sync.Map` plus `Truncate` and `Flush`, which takes care of removing all items in a `Map` and removing expired items from a `Map`, respectivelly.
 
 ## TTL 
 
@@ -36,7 +36,7 @@ if err := m.Store(ctx, example{"example-key-1", "example content}); err != nil {
     return
 }
 
-value, err := m.Load(ctx, key)
+value, err := m.Load(ctx, "example-key-1")
 if err != nil {
     fmt.Println("something went wrong:", err)
     return
