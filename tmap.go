@@ -16,7 +16,7 @@ type (
 		Store(ctx context.Context, item Item) error
 		Swap(ctx context.Context, item Item) error
 		Delete(ctx context.Context, itemID string) error
-		Range(ctx context.Context, f func(k, v any) bool)
+		Range(ctx context.Context, f func(k, v any) bool) ([]Item, error)
 
 		Truncate(ctx context.Context) error
 		Flush(ctx context.Context, ticker *time.Ticker)
